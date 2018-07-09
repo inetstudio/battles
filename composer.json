@@ -1,0 +1,35 @@
+{
+    "name": "inetstudio/battles",
+    "description": "Package for battles",
+    "homepage": "https://github.com/inetstudio/battles",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Konstantin Bukin",
+        "email": "bukin@inetstudio.ru"
+      }
+    ],
+    "require": {
+      "inetstudio/access": "1.6.*",
+      "inetstudio/admin-panel": "1.6.*",
+      "inetstudio/categories": "1.6.*",
+      "inetstudio/comments": "1.6.*",
+      "inetstudio/favorites": "1.6.*",
+      "inetstudio/tags": "1.6.*",
+      "inetstudio/rating": "1.6.*",
+      "inetstudio/statuses": "1.6.*",
+      "inetstudio/widgets": "1.6.*"
+    },
+    "autoload": {
+      "psr-4": {
+        "InetStudio\\Battles\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "InetStudio\\Battles\\Providers\\BattlesServiceProvider"
+        ]
+      }
+    }
+}
