@@ -28,6 +28,7 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
     use \InetStudio\Widgets\Models\Traits\HasWidgets;
     use \Venturecraft\Revisionable\RevisionableTrait;
     use \InetStudio\Comments\Models\Traits\HasComments;
+    use \InetStudio\Products\Models\Traits\HasProducts;
     use \InetStudio\Favorites\Models\Traits\Favoritable;
     use \Cviebrock\EloquentSluggable\SluggableScopeHelpers;
     use \InetStudio\Categories\Models\Traits\HasCategories;

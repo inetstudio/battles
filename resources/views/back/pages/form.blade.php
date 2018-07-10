@@ -226,10 +226,14 @@
                 </div>
             </div>
 
+            {!! Form::products('products', $item->products)!!}
+
             {!! Form::buttons('', '', ['back' => 'back.battles.index']) !!}
 
         {!! Form::close()!!}
     </div>
 
+    @include('admin.module.products::back.pages.modals.suggestion')
     @include('admin.module.widgets::back.pages.modals.embedded')
+    
 @endsection

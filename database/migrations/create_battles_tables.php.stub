@@ -24,7 +24,7 @@ class CreateBattlesTables extends Migration
         Schema::create('battles_votes', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('battle_id')->unsigned()->index()->default(0);
-            $table->string('option_id');
+            $table->string('option_id')->index();
             $table->string('user_id')->index();
             $table->timestamps();
             $table->softDeletes();
