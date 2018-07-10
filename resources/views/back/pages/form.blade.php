@@ -182,6 +182,8 @@
                 </div>
             </div>
 
+            {!! Form::products('products', $item->products)!!}
+
             {!! Form::access('battles', $item) !!}
 
             <hr/>
@@ -226,8 +228,6 @@
                 </div>
             </div>
 
-            {!! Form::products('products', $item->products)!!}
-
             {!! Form::buttons('', '', ['back' => 'back.battles.index']) !!}
 
         {!! Form::close()!!}
@@ -235,5 +235,5 @@
 
     @include('admin.module.products::back.pages.modals.suggestion')
     @include('admin.module.widgets::back.pages.modals.embedded')
-    
+
 @endsection

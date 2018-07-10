@@ -111,6 +111,10 @@ class BattlesDataTableService extends DataTable implements BattlesDataTableServi
         $i18n = trans('admin::datatables');
 
         return [
+            'order' => [
+                2,
+                'desc'
+            ],
             'paging' => true,
             'pagingType' => 'full_numbers',
             'searching' => true,
