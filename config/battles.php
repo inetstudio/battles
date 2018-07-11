@@ -35,8 +35,8 @@ return [
                         [
                             'name' => 'first_option_vertical',
                             'size' => [
-                                'width' => 300,
-                                'height' => 400,
+                                'width' => 460,
+                                'height' => 560,
                             ],
                         ],
                     ],
@@ -46,8 +46,8 @@ return [
                         [
                             'name' => 'second_option_vertical',
                             'size' => [
-                                'width' => 300,
-                                'height' => 400,
+                                'width' => 460,
+                                'height' => 560,
                             ],
                         ],
                     ],
@@ -96,12 +96,12 @@ return [
                     [
                         'title' => 'Вертикальная ориентация',
                         'name' => 'vertical',
-                        'ratio' => '3/4',
+                        'ratio' => '460/560',
                         'size' => [
-                            'width' => 300,
-                            'height' => 400,
+                            'width' => 460,
+                            'height' => 560,
                             'type' => 'min',
-                            'description' => 'Минимальный размер области — 300x400 пикселей'
+                            'description' => 'Минимальный размер области — 460x560 пикселей'
                         ],
                     ],
                 ],
@@ -109,12 +109,12 @@ return [
                     [
                         'title' => 'Вертикальная ориентация',
                         'name' => 'vertical',
-                        'ratio' => '3/4',
+                        'ratio' => '460/560',
                         'size' => [
-                            'width' => 300,
-                            'height' => 400,
+                            'width' => 460,
+                            'height' => 560,
                             'type' => 'min',
-                            'description' => 'Минимальный размер области — 300x400 пикселей'
+                            'description' => 'Минимальный размер области — 460x560 пикселей'
                         ],
                     ],
                 ],

@@ -221,6 +221,15 @@ class BattlesRepository implements BattlesRepositoryContract
                 $query->select(['id', 'parent_id', 'name', 'slug', 'title', 'description'])->whereNotNull('parent_id');
             },
 
+            'products' => function ($query) {
+                $query->select(['id', 'title', 'brand'])
+                    ->with(['media' => function ($query) {
+                        $query->select(['id', 'model_id', 'model_type', 'collection_name', 'file_name', 'disk']);
+                    }, 'links' => function ($linksQuery) {
+                        $linksQuery->select(['id', 'product_id', 'link']);
+                    }]);
+            },
+
             'counters' => function ($query) {
                 $query->select(['countable_id', 'countable_type', 'type', 'counter']);
             },

@@ -33,6 +33,7 @@ class CreateBattlesTables extends Migration
 
     public function down()
     {
+        Schema::drop('battles_votes');
         Schema::drop('battles');
     }
 }
