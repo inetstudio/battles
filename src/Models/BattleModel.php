@@ -32,6 +32,7 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
     use \InetStudio\Favorites\Models\Traits\Favoritable;
     use \Cviebrock\EloquentSluggable\SluggableScopeHelpers;
     use \InetStudio\Categories\Models\Traits\HasCategories;
+    use \InetStudio\CustomFields\Models\Traits\HasCustomFields;
     use \InetStudio\SimpleCounters\Models\Traits\HasSimpleCountersTrait;
 
     const ENTITY_TYPE = 'battle';
