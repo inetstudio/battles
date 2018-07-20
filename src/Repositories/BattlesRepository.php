@@ -209,6 +209,10 @@ class BattlesRepository implements BattlesRepositoryContract
                 $query->select(['accessable_id', 'accessable_type', 'field', 'access']);
             },
 
+            'custom_fields' => function ($query) {
+                $query->select(['customizable_id', 'customizable_type', 'key', 'value']);
+            },
+
             'meta' => function ($query) {
                 $query->select(['metable_id', 'metable_type', 'key', 'value']);
             },
