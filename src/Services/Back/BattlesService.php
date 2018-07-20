@@ -32,6 +32,7 @@ class BattlesService implements BattlesServiceContract
      */
     public function __construct()
     {
+        $this->services['fields'] = app()->make('InetStudio\CustomFields\Contracts\Services\Back\CustomFieldsServiceContract');
         $this->services['meta'] = app()->make('InetStudio\Meta\Contracts\Services\Back\MetaServiceContract');
         $this->services['uploads'] = app()->make('InetStudio\Uploads\Contracts\Services\Back\ImagesServiceContract');
         $this->services['tags'] = app()->make('InetStudio\Tags\Contracts\Services\Back\TagsServiceContract');
@@ -91,6 +92,7 @@ class BattlesService implements BattlesServiceContract
         $this->services['categories']->attachToObject($request, $item);
         $this->services['access']->attachToObject($request, $item);
         $this->services['widgets']->attachToObject($request, $item);
+        $this->services['fields']->attachToObject($request, $item);
 
         $item->searchable();
 
