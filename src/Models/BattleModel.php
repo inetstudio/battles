@@ -5,6 +5,7 @@ namespace InetStudio\Battles\Models;
 use Cocur\Slugify\Slugify;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use InetStudio\CustomFields\Models\Traits\HasCustomFields;
 use InetStudio\Statuses\Models\Traits\Status;
 use InetStudio\Meta\Contracts\Models\Traits\MetableContract;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
