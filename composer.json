@@ -28,6 +28,7 @@
     "extra": {
       "laravel": {
         "providers": [
+          "InetStudio\\Battles\\Providers\\BattlesBindingsServiceProvider",
           "InetStudio\\Battles\\Providers\\BattlesServiceProvider"
         ]
       }
