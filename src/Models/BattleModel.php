@@ -5,7 +5,6 @@ namespace InetStudio\Battles\Models;
 use Cocur\Slugify\Slugify;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use InetStudio\CustomFields\Models\Traits\HasCustomFields;
 use InetStudio\Statuses\Models\Traits\Status;
 use InetStudio\Meta\Contracts\Models\Traits\MetableContract;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
@@ -203,6 +202,19 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
     }
 
     use Status;
+
+    /**
+     * Отношение "один ко многим" с моделью голосов.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function votes()
+    {
+        return $this->hasMany(
+            app()->make('InetStudio\Battles\Contracts\Models\BattleVoteModelContract'),
+            'battle_id', 'id'
+        );
+    }
 
     /**
      * Настройка полей для поиска.

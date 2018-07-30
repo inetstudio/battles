@@ -11,3 +11,10 @@ Route::group([
 
     Route::resource('battles', 'BattlesControllerContract', ['as' => 'back']);
 });
+
+Route::group([
+    'namespace' => 'InetStudio\Battles\Contracts\Http\Controllers\Front',
+    'middleware' => ['web'],
+], function () {
+    Route::post('battles/vote/{battleID}/{optionID}', 'BattlesVotesControllerContract@vote')->name('front.battles.vote');
+});
