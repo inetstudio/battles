@@ -28,11 +28,9 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
     use \InetStudio\Widgets\Models\Traits\HasWidgets;
     use \Venturecraft\Revisionable\RevisionableTrait;
     use \InetStudio\Comments\Models\Traits\HasComments;
-    use \InetStudio\Products\Models\Traits\HasProducts;
     use \InetStudio\Favorites\Models\Traits\Favoritable;
     use \Cviebrock\EloquentSluggable\SluggableScopeHelpers;
     use \InetStudio\Categories\Models\Traits\HasCategories;
-    use \InetStudio\CustomFields\Models\Traits\HasCustomFields;
     use \InetStudio\SimpleCounters\Models\Traits\HasSimpleCountersTrait;
 
     const ENTITY_TYPE = 'battle';
@@ -231,10 +229,6 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
 
         $arr['tags'] = $this->tags->map(function ($item) {
             return array_only($item->toSearchableArray(), ['id', 'name']);
-        })->toArray();
-
-        $arr['products'] = $this->products->map(function ($item) {
-            return array_only($item->toSearchableArray(), ['id', 'title']);
         })->toArray();
 
         return $arr;

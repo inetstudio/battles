@@ -182,8 +182,6 @@
                 </div>
             </div>
 
-            {!! Form::products('products', $item->products, compact('item')) !!}
-
             {!! Form::access('battles', $item) !!}
 
             <hr/>
@@ -228,41 +226,11 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel-group float-e-margins" id="brandingAccordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#brandingAccordion" href="#collapseBranding" aria-expanded="false" class="collapsed">Брендирование</a>
-                                </h5>
-                            </div>
-                            <div id="collapseBranding" class="panel-collapse collapse" aria-expanded="false">
-                                <div class="panel-body">
-                                    {!! Form::string('custom[branding]', $item->getCustomField('branding', ''), [
-                                         'label' => [
-                                             'title' => 'CSS класс',
-                                         ],
-                                     ]) !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {!! Form::buttons('', '', ['back' => 'back.battles.index']) !!}
 
         {!! Form::close()!!}
     </div>
 
-    @include('admin.module.articles::back.pages.modals.suggestion')
-    @include('admin.module.persons::back.pages.modals.suggestion')
-    @include('admin.module.polls::back.pages.modals.form')
-    @include('admin.module.products::back.pages.modals.suggestion')
-    @include('admin.module.products::back.widgets.products_list')
-    @include('admin.module.quizzes::back.pages.modals.suggestion')
-    @include('admin.module.reviews.messages::back.widgets.messages_list')
     @include('admin.module.widgets::back.pages.modals.embedded')
 
 @endsection

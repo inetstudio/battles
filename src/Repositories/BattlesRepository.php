@@ -5,6 +5,7 @@ namespace InetStudio\Battles\Repositories;
 use Illuminate\Database\Eloquent\Builder;
 use InetStudio\Tags\Repositories\Traits\TagsRepositoryTrait;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
+use InetStudio\Products\Repositories\Traits\ProductsRepositoryTrait;
 use InetStudio\Categories\Repositories\Traits\CategoriesRepositoryTrait;
 use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
 
@@ -14,6 +15,7 @@ use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
 class BattlesRepository implements BattlesRepositoryContract
 {
     use TagsRepositoryTrait;
+    use ProductsRepositoryTrait;
     use CategoriesRepositoryTrait;
 
     /**
@@ -221,10 +223,6 @@ class BattlesRepository implements BattlesRepositoryContract
                 $query->select(['accessable_id', 'accessable_type', 'field', 'access']);
             },
 
-            'custom_fields' => function ($query) {
-                $query->select(['customizable_id', 'customizable_type', 'key', 'value']);
-            },
-
             'meta' => function ($query) {
                 $query->select(['metable_id', 'metable_type', 'key', 'value']);
             },
@@ -239,15 +237,6 @@ class BattlesRepository implements BattlesRepositoryContract
 
             'categories' => function ($query) {
                 $query->select(['id', 'parent_id', 'name', 'slug', 'title', 'description'])->whereNotNull('parent_id');
-            },
-
-            'products' => function ($query) {
-                $query->select(['id', 'title', 'brand'])
-                    ->with(['media' => function ($query) {
-                        $query->select(['id', 'model_id', 'model_type', 'collection_name', 'file_name', 'disk']);
-                    }, 'links' => function ($linksQuery) {
-                        $linksQuery->select(['id', 'product_id', 'link']);
-                    }]);
             },
 
             'counters' => function ($query) {
