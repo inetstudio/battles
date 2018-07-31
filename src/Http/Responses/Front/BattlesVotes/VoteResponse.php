@@ -1,6 +1,6 @@
 <?php
 
-namespace InetStudio\Battles\Http\Responses\Back\Utility;
+namespace InetStudio\Battles\Http\Responses\Front\BattlesVotes;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\Support\Responsable;

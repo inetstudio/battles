@@ -1,6 +1,6 @@
 <?php
 
-namespace InetStudio\Battles\Http\Controllers\Back;
+namespace InetStudio\Battles\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use InetStudio\Battles\Contracts\Http\Controllers\Front\BattlesVotesControllerContract;
