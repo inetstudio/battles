@@ -16,14 +16,15 @@ class BattlesVotesService implements BattlesVotesServiceContract
     /**
      * @var
      */
-    public $repository;
+    public $repositories;
 
     /**
      * BattlesVotesService constructor.
      */
     public function __construct()
     {
-        $this->repository = app()->make('InetStudio\Battles\Contracts\Repositories\BattlesVotesRepositoryContract');
+        $this->repositories['battles'] = app()->make('InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract');
+        $this->repositories['battlesVotes'] = app()->make('InetStudio\Battles\Contracts\Repositories\BattlesVotesRepositoryContract');
     }
 
     /**
@@ -32,15 +33,17 @@ class BattlesVotesService implements BattlesVotesServiceContract
      * @param int $battleID
      * @param int $optionID
      *
-     * @return BattleVoteModelContract
+     * @return BattleVoteModelContract|null
      */
-    public function vote(int $battleID, int $optionID): BattleVoteModelContract
+    public function vote(int $battleID, int $optionID): ?BattleVoteModelContract
     {
-        $vote = $this->repository->save([
+        $battle = $this->repositories['battles']->getItemByID($battleID);
+
+        $vote = (! $this->isVote($battle, null)) ? $this->repositories['battlesVotes']->save([
             'battle_id' => $battleID,
             'option_id' => $optionID,
             'user_id' => $this->getUserId(),
-        ], 0);
+        ], 0) : null;
 
         return $vote;
     }
@@ -71,7 +74,7 @@ class BattlesVotesService implements BattlesVotesServiceContract
      */
     public function getRatio(int $battleID)
     {
-        $counts = $this->repository->getItemsCountsByBattle($battleID);
+        $counts = $this->repositories['battlesVotes']->getItemsCountsByBattle($battleID);
 
         $allVotes = $counts->sum('total');
 
