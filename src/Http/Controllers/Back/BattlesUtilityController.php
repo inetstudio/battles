@@ -43,7 +43,7 @@ class BattlesUtilityController extends Controller implements BattlesUtilityContr
 
         $slug = ($name) ? SlugService::createSlug($model, 'slug', $name) : '';
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Utility\SlugResponseContract', [
+        return app()->makeWith(SlugResponseContract::class, [
             'slug' => $slug,
         ]);
     }
@@ -62,7 +62,7 @@ class BattlesUtilityController extends Controller implements BattlesUtilityContr
 
         $data = $this->services['battles']->getSuggestions($search, $type);
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Utility\SuggestionsResponseContract', [
+        return app()->makeWith(SuggestionsResponseContract::class, [
             'suggestions' => $data,
         ]);
     }

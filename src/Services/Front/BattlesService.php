@@ -37,107 +37,106 @@ class BattlesService implements BattlesServiceContract
     }
 
     /**
-     * Получаем объекты по id.
+     * Получаем объекты по списку id.
      *
-     * @param $ids
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array|int $ids
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesByIDs($ids, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattlesByIDs($ids, array $params = [])
     {
-        return $this->repository->getItemsByIDs($ids, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemsByIDs($ids, $params);
     }
 
     /**
      * Получаем объект по slug.
      *
      * @param string $slug
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattleBySlug(string $slug, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattleBySlug(string $slug, array $params = [])
     {
-        return $this->repository->getItemBySlug($slug, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemBySlug($slug, $params);
     }
 
     /**
      * Получаем объекты по тегу.
      *
      * @param string $tagSlug
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesByTag(string $tagSlug, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattlesByTag(string $tagSlug, array $params = [])
     {
-        return $this->repository->getItemsByTag($tagSlug, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemsByTag($tagSlug, $params);
     }
 
     /**
      * Получаем объекты по категории.
      *
      * @param string $categorySlug
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesByCategory(string $categorySlug, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattlesByCategory(string $categorySlug, array $params = [])
     {
-        return $this->repository->getItemsByCategory($categorySlug, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemsByCategory($categorySlug, $params);
     }
 
     /**
      * Получаем объекты из категорий.
      *
      * @param $categories
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesFromCategories($categories, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattlesFromCategories($categories, array $params = [])
     {
-        return $this->repository->getItemsFromCategories($categories, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemsFromCategories($categories, $params);
+    }
+
+    /**
+     * Получаем объекты из любых категорий.
+     *
+     * @param $categories
+     * @param array $params
+     *
+     * @return mixed
+     */
+    public function getBattlesByAnyCategory($categories, array $params = [])
+    {
+        return $this->repository->getItemsByAnyCategory($categories, $params);
     }
 
     /**
      * Получаем сохраненные объекты пользователя.
      *
      * @param int $userID
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesFavoritedByUser(int $userID, array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getBattlesFavoritedByUser(int $userID, array $params = [])
     {
-        return $this->repository->getItemsFavoritedByUser($userID, $extColumns, $with, $returnBuilder);
+        return $this->repository->getItemsFavoritedByUser($userID, $params);
     }
 
     /**
      * Получаем все объекты.
      *
-     * @param array $extColumns
-     * @param array $with
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getAllBattles(array $extColumns = [], array $with = [], bool $returnBuilder = false)
+    public function getAllBattles(array $params = [])
     {
-        return $this->repository->getAllItems($extColumns, $with, $returnBuilder);
+        return $this->repository->getAllItems($params);
     }
 
     /**
@@ -147,10 +146,16 @@ class BattlesService implements BattlesServiceContract
      */
     public function getFeedItems(): array
     {
-        $items = $this->repository->getAllItems(['title', 'description', 'content', 'publish_date'], ['categories'], true)
+        $items = $this->repository->getItemsQuery([
+                'columns' => ['title', 'description', 'content', 'publish_date'],
+                'relations' => ['categories'],
+                'order' => ['publish_date' => 'desc'],
+                'paging' => [
+                    'page' => 0,
+                    'limit' => 500,
+                ],
+            ])
             ->whereNotNull('publish_date')
-            ->orderBy('publish_date', 'desc')
-            ->limit(500)
             ->get();
 
         $resource = app()->make('InetStudio\Battles\Contracts\Transformers\Front\BattlesFeedItemsTransformerContract')

@@ -49,9 +49,10 @@ class BattlesDataTableService extends DataTable implements BattlesDataTableServi
      */
     public function query()
     {
-        $query = $this->repository->getAllItems([], [], true)
-            ->addSelect(['status_id', 'publish_date'])
-            ->with(['status']);
+        $query = $this->repository->getItemsQuery([
+            'columns' => ['status_id', 'created_at', 'updated_at', 'publish_date'],
+            'relations' => ['status'],
+        ]);
 
         return $query;
     }

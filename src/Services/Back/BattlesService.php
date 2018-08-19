@@ -55,16 +55,16 @@ class BattlesService implements BattlesServiceContract
     }
 
     /**
-     * Возвращаем объекты по списку id.
+     * Получаем объекты по списку id.
      *
      * @param array|int $ids
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getBattlesByIDs($ids, bool $returnBuilder = false)
+    public function getBattlesByIDs($ids, array $params = [])
     {
-        return $this->repository->getItemsByIDs($ids, [], [], $returnBuilder);
+        return $this->repository->getItemsByIDs($ids, $params);
     }
 
     /**
@@ -150,8 +150,10 @@ class BattlesService implements BattlesServiceContract
      */
     public function getBattlesStatisticByStatus()
     {
-        $battles = $this->repository->getAllItems([], ['status'], true)
-            ->select(['status_id', DB::raw('count(*) as total')])
+        $battles = $this->repository->getItemsQuery([
+                'columns' => ['status_id', DB::raw('count(*) as total')],
+                'relations' => ['status'],
+            ])
             ->groupBy('status_id')
             ->get();
 

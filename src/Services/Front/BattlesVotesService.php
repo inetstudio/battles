@@ -43,7 +43,7 @@ class BattlesVotesService implements BattlesVotesServiceContract
             'battle_id' => $battleID,
             'option_id' => $optionID,
             'user_id' => $this->getUserId(),
-        ], 0) : null;
+        ]) : null;
 
         return $vote;
     }

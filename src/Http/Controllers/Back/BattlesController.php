@@ -41,7 +41,7 @@ class BattlesController extends Controller implements BattlesControllerContract
     {
         $table = $this->services['dataTables']->html();
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Battles\IndexResponseContract', [
+        return app()->makeWith(IndexResponseContract::class, [
             'data' => compact('table'),
         ]);
     }
@@ -71,7 +71,7 @@ class BattlesController extends Controller implements BattlesControllerContract
     {
         $item = $this->services['battles']->getBattleObject();
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Battles\FormResponseContract', [
+        return app()->makeWith(FormResponseContract::class, [
             'data' => compact('item'),
         ]);
     }
@@ -99,7 +99,7 @@ class BattlesController extends Controller implements BattlesControllerContract
     {
         $item = $this->services['battles']->getBattleObject($id);
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Battles\FormResponseContract', [
+        return app()->makeWith(FormResponseContract::class, [
             'data' => compact('item'),
         ]);
     }
@@ -129,7 +129,7 @@ class BattlesController extends Controller implements BattlesControllerContract
     {
         $item = $this->services['battles']->save($request, $id);
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Battles\SaveResponseContract', [
+        return app()->makeWith(SaveResponseContract::class, [
             'item' => $item,
         ]);
     }
@@ -145,7 +145,7 @@ class BattlesController extends Controller implements BattlesControllerContract
     {
         $result = $this->services['battles']->destroy($id);
 
-        return app()->makeWith('InetStudio\Battles\Contracts\Http\Responses\Back\Battles\DestroyResponseContract', [
+        return app()->makeWith(DestroyResponseContract::class, [
             'result' => (!! $result),
         ]);
     }
