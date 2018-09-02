@@ -9,8 +9,8 @@ return [
 
     'battles' => [
         'driver' => 'local',
-        'root' => storage_path('app/public/battles/'),
-        'url' => env('APP_URL').'/storage/battles/',
+        'root' => storage_path('app/public/battles'),
+        'url' => env('APP_URL').'/storage/battles',
         'visibility' => 'public',
     ],
 
