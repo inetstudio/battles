@@ -176,7 +176,10 @@ class BattlesService implements BattlesServiceContract
      */
     public function getSiteMapItems(): array
     {
-        $items = $this->repository->getAllItems();
+        $items = $this->repository->getAllItems([
+            'columns' => ['created_at', 'updated_at'],
+            'order' => ['created_at' => 'desc'],
+        ]);
 
         $resource = app()->make('InetStudio\Battles\Contracts\Transformers\Front\BattlesSiteMapTransformerContract')
             ->transformCollection($items);
