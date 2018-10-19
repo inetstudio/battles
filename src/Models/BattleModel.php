@@ -5,17 +5,17 @@ namespace InetStudio\Battles\Models;
 use Cocur\Slugify\Slugify;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use InetStudio\Statuses\Models\Traits\Status;
 use InetStudio\Meta\Contracts\Models\Traits\MetableContract;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
 use InetStudio\Rating\Contracts\Models\Traits\RateableContract;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 use InetStudio\Favorites\Contracts\Models\Traits\FavoritableContract;
 
 /**
  * Class BattleModel.
  */
-class BattleModel extends Model implements BattleModelContract, MetableContract, HasMediaConversions, FavoritableContract, RateableContract
+class BattleModel extends Model implements BattleModelContract, MetableContract, HasMedia, FavoritableContract, RateableContract
 {
     use \Laravel\Scout\Searchable;
     use \Cviebrock\EloquentSluggable\Sluggable;
