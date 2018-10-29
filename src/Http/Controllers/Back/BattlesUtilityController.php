@@ -38,8 +38,10 @@ class BattlesUtilityController extends Controller implements BattlesUtilityContr
      */
     public function getSlug(Request $request): SlugResponseContract
     {
+        $id = (int) $request->get('id');
         $name = $request->get('name');
-        $model = app()->make('InetStudio\Battles\Contracts\Models\BattleModelContract');
+
+        $model = $this->services['battles']->getBattleObject($id);
 
         $slug = ($name) ? SlugService::createSlug($model, 'slug', $name) : '';
 

@@ -245,6 +245,7 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
             'slug' => [
                 'source' => 'title',
                 'unique' => true,
+                'includeTrashed' => true,
             ],
         ];
     }
