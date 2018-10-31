@@ -151,9 +151,9 @@ class BattlesService implements BattlesServiceContract
     public function getBattlesStatisticByStatus()
     {
         $battles = $this->repository->getItemsQuery([
-                'columns' => ['status_id', DB::raw('count(*) as total')],
                 'relations' => ['status'],
             ])
+            ->select(['status_id', DB::raw('count(*) as total')])
             ->groupBy('status_id')
             ->get();
 
