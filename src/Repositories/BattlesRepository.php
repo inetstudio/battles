@@ -5,6 +5,7 @@ namespace InetStudio\Battles\Repositories;
 use InetStudio\AdminPanel\Repositories\BaseRepository;
 use InetStudio\Tags\Repositories\Traits\TagsRepositoryTrait;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
+use InetStudio\AdminPanel\Repositories\Traits\SlugsRepositoryTrait;
 use InetStudio\Products\Repositories\Traits\ProductsRepositoryTrait;
 use InetStudio\Favorites\Repositories\Traits\FavoritesRepositoryTrait;
 use InetStudio\Categories\Repositories\Traits\CategoriesRepositoryTrait;
@@ -16,6 +17,7 @@ use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
 class BattlesRepository extends BaseRepository implements BattlesRepositoryContract
 {
     use TagsRepositoryTrait;
+    use SlugsRepositoryTrait;
     use ProductsRepositoryTrait;
     use FavoritesRepositoryTrait;
     use CategoriesRepositoryTrait;
@@ -64,23 +66,5 @@ class BattlesRepository extends BaseRepository implements BattlesRepositoryContr
                 $query->select(['id', 'name', 'alias', 'color_class']);
             },
         ];
-    }
-
-    /**
-     * Получаем объекты по slug.
-     *
-     * @param string $slug
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getItemBySlug(string $slug, array $params = [])
-    {
-        $builder = $this->getItemsQuery($params)
-            ->whereSlug($slug);
-
-        $item = $builder->first();
-
-        return $item;
     }
 }

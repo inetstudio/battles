@@ -90,9 +90,10 @@ class BattlesVotesService implements BattlesVotesServiceContract
     /**
      * Получаем id пользователя.
      *
-     * @param int|null $userId
+     * @param null $userId
+     * @return array|int|null|string
      *
-     * @return string
+     * @throws \Exception
      */
     protected function getUserId($userId = null)
     {

@@ -4,139 +4,29 @@ namespace InetStudio\Battles\Services\Front;
 
 use League\Fractal\Manager;
 use League\Fractal\Serializer\DataArraySerializer;
+use InetStudio\AdminPanel\Services\Front\BaseService;
+use InetStudio\Tags\Services\Front\Traits\TagsServiceTrait;
+use InetStudio\AdminPanel\Services\Front\Traits\SlugsServiceTrait;
+use InetStudio\Favorites\Services\Front\Traits\FavoritesServiceTrait;
 use InetStudio\Battles\Contracts\Services\Front\BattlesServiceContract;
+use InetStudio\Categories\Services\Front\Traits\CategoriesServiceTrait;
 
 /**
  * Class BattlesService.
  */
-class BattlesService implements BattlesServiceContract
+class BattlesService extends BaseService implements BattlesServiceContract
 {
-    /**
-     * @var
-     */
-    public $repository;
+    use TagsServiceTrait;
+    use SlugsServiceTrait;
+    use FavoritesServiceTrait;
+    use CategoriesServiceTrait;
 
     /**
      * BattlesService constructor.
      */
     public function __construct()
     {
-        $this->repository = app()->make('InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract');
-    }
-
-    /**
-     * Получаем объект по id.
-     *
-     * @param int $id
-     *
-     * @return mixed
-     */
-    public function getBattleById(int $id = 0)
-    {
-        return $this->repository->getItemByID($id);
-    }
-
-    /**
-     * Получаем объекты по списку id.
-     *
-     * @param array|int $ids
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesByIDs($ids, array $params = [])
-    {
-        return $this->repository->getItemsByIDs($ids, $params);
-    }
-
-    /**
-     * Получаем объект по slug.
-     *
-     * @param string $slug
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattleBySlug(string $slug, array $params = [])
-    {
-        return $this->repository->getItemBySlug($slug, $params);
-    }
-
-    /**
-     * Получаем объекты по тегу.
-     *
-     * @param string $tagSlug
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesByTag(string $tagSlug, array $params = [])
-    {
-        return $this->repository->getItemsByTag($tagSlug, $params);
-    }
-
-    /**
-     * Получаем объекты по категории.
-     *
-     * @param string $categorySlug
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesByCategory(string $categorySlug, array $params = [])
-    {
-        return $this->repository->getItemsByCategory($categorySlug, $params);
-    }
-
-    /**
-     * Получаем объекты из категорий.
-     *
-     * @param $categories
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesFromCategories($categories, array $params = [])
-    {
-        return $this->repository->getItemsFromCategories($categories, $params);
-    }
-
-    /**
-     * Получаем объекты из любых категорий.
-     *
-     * @param $categories
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesByAnyCategory($categories, array $params = [])
-    {
-        return $this->repository->getItemsByAnyCategory($categories, $params);
-    }
-
-    /**
-     * Получаем сохраненные объекты пользователя.
-     *
-     * @param int $userID
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getBattlesFavoritedByUser(int $userID, array $params = [])
-    {
-        return $this->repository->getItemsFavoritedByUser($userID, $params);
-    }
-
-    /**
-     * Получаем все объекты.
-     *
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getAllBattles(array $params = [])
-    {
-        return $this->repository->getAllItems($params);
+        parent::__construct(app()->make('InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract'));
     }
 
     /**
