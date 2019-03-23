@@ -230,10 +230,6 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
     {
         $arr = Arr::only($this->toArray(), ['id', 'title', 'description', 'content']);
 
-        $arr['categories'] = $this->categories->map(function ($item) {
-            return Arr::only($item->toSearchableArray(), ['id', 'title']);
-        })->toArray();
-
         $arr['tags'] = $this->tags->map(function ($item) {
             return Arr::only($item->toSearchableArray(), ['id', 'name']);
         })->toArray();
