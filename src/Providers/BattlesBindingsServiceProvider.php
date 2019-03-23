@@ -3,17 +3,13 @@
 namespace InetStudio\Battles\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
 /**
  * Class BattlesBindingsServiceProvider.
  */
-class BattlesBindingsServiceProvider extends ServiceProvider
+class BattlesBindingsServiceProvider extends ServiceProvider implements DeferrableProvider
 {
-    /**
-    * @var  bool
-    */
-    protected $defer = true;
-
     /**
     * @var  array
     */
