@@ -9,8 +9,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="ibox-content form-horizontal">
-                        <div class="row">
+                    <div class="ibox-content">
 
                             {!! Form::hidden('battle_data', '', [
                                 'class' => 'choose-data',
@@ -28,7 +27,6 @@
                                 ],
                             ]) !!}
 
-                        </div>
                     </div>
                 </div>
 
