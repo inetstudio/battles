@@ -3,7 +3,6 @@
 namespace InetStudio\Battles\Repositories;
 
 use InetStudio\AdminPanel\Repositories\BaseRepository;
-use InetStudio\Tags\Repositories\Traits\TagsRepositoryTrait;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
 use InetStudio\AdminPanel\Repositories\Traits\SlugsRepositoryTrait;
 use InetStudio\Products\Repositories\Traits\ProductsRepositoryTrait;
@@ -16,7 +15,6 @@ use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
  */
 class BattlesRepository extends BaseRepository implements BattlesRepositoryContract
 {
-    use TagsRepositoryTrait;
     use SlugsRepositoryTrait;
     use ProductsRepositoryTrait;
     use FavoritesRepositoryTrait;
