@@ -3,6 +3,7 @@
 namespace InetStudio\Battles\Models;
 
 use Cocur\Slugify\Slugify;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -13,12 +14,14 @@ use InetStudio\Meta\Contracts\Models\Traits\MetableContract;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
 use InetStudio\Rating\Contracts\Models\Traits\RateableContract;
 use InetStudio\Favorites\Contracts\Models\Traits\FavoritableContract;
+use InetStudio\AdminPanel\Base\Models\Traits\Scopes\BuildQueryScopeTrait;
 
 /**
  * Class BattleModel.
  */
 class BattleModel extends Model implements BattleModelContract, MetableContract, HasMedia, FavoritableContract, RateableContract, Auditable
 {
+    use BuildQueryScopeTrait;
     use \Laravel\Scout\Searchable;
     use \Cviebrock\EloquentSluggable\Sluggable;
     use \InetStudio\Meta\Models\Traits\Metable;
@@ -84,6 +87,50 @@ class BattleModel extends Model implements BattleModelContract, MetableContract,
      * @var bool
      */
     protected $auditTimestamps = true;
+
+    /**
+     * Загрузка модели.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::$buildQueryScopeDefaults['columns'] = [
+            'id',
+            'slug',
+            'title',
+        ];
+
+        self::$buildQueryScopeDefaults['relations'] = [
+            'access' => function ($query) {
+                $query->select(['accessable_id', 'accessable_type', 'field', 'access']);
+            },
+
+            'meta' => function ($query) {
+                $query->select(['metable_id', 'metable_type', 'key', 'value']);
+            },
+
+            'media' => function ($query) {
+                $query->select(['id', 'model_id', 'model_type', 'collection_name', 'file_name', 'disk', 'mime_type', 'custom_properties', 'responsive_images']);
+            },
+
+            'tags' => function ($query) {
+                $query->select(['id', 'name', 'slug']);
+            },
+
+            'categories' => function ($query) {
+                $query->select(['id', 'parent_id', 'name', 'slug', 'title', 'description'])->whereNotNull('parent_id');
+            },
+
+            'counters' => function ($query) {
+                $query->select(['countable_id', 'countable_type', 'type', 'counter']);
+            },
+
+            'status' => function ($query) {
+                $query->select(['id', 'name', 'alias', 'color_class']);
+            },
+        ];
+    }
 
     /**
      * Сеттер атрибута title.

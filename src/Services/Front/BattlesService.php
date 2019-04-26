@@ -21,12 +21,15 @@ class BattlesService extends BaseService implements BattlesServiceContract
     use FavoritesServiceTrait;
     use CategoriesServiceTrait;
 
+    public $model;
+
     /**
      * BattlesService constructor.
      */
     public function __construct()
     {
         parent::__construct(app()->make('InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract'));
+        $this->model = app()->make('InetStudio\Battles\Contracts\Models\BattleModelContract');
     }
 
     /**
