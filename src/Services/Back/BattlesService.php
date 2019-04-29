@@ -35,7 +35,7 @@ class BattlesService implements BattlesServiceContract
         $this->services['meta'] = app()->make('InetStudio\Meta\Contracts\Services\Back\MetaServiceContract');
         $this->services['uploads'] = app()->make('InetStudio\Uploads\Contracts\Services\Back\ImagesServiceContract');
         $this->services['tags'] = app()->make('InetStudio\TagsPackage\Tags\Contracts\Services\Back\ItemsServiceContract');
-        $this->services['categories'] = app()->make('InetStudio\Categories\Contracts\Services\Back\CategoriesServiceContract');
+        $this->services['categories'] = app()->make('InetStudio\CategoriesPackage\Categories\Contracts\Services\Back\ItemsServiceContract');
         $this->services['access'] = app()->make('InetStudio\Access\Contracts\Services\Back\AccessServiceContract');
         $this->services['widgets'] = app()->make('InetStudio\Widgets\Contracts\Services\Back\WidgetsServiceContract');
 
@@ -86,7 +86,7 @@ class BattlesService implements BattlesServiceContract
         $this->services['uploads']->attachToObject($request, $item, $images, 'battles', $item->material_type);
 
         $this->services['tags']->attachToObject($request, $item);
-        $this->services['categories']->attachToObject($request, $item);
+        $this->services['categories']->attachToObject($request->get('categories'), $item);
         $this->services['access']->attachToObject($request, $item);
         $this->services['widgets']->attachToObject($request, $item);
 

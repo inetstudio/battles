@@ -7,7 +7,6 @@ use InetStudio\Battles\Contracts\Models\BattleModelContract;
 use InetStudio\AdminPanel\Repositories\Traits\SlugsRepositoryTrait;
 use InetStudio\Products\Repositories\Traits\ProductsRepositoryTrait;
 use InetStudio\Favorites\Repositories\Traits\FavoritesRepositoryTrait;
-use InetStudio\Categories\Repositories\Traits\CategoriesRepositoryTrait;
 use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
 
 /**
@@ -18,7 +17,6 @@ class BattlesRepository extends BaseRepository implements BattlesRepositoryContr
     use SlugsRepositoryTrait;
     use ProductsRepositoryTrait;
     use FavoritesRepositoryTrait;
-    use CategoriesRepositoryTrait;
 
     /**
      * @var string 

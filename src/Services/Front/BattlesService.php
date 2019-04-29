@@ -9,7 +9,7 @@ use InetStudio\TagsPackage\Tags\Services\Front\Traits\TagsServiceTrait;
 use InetStudio\AdminPanel\Services\Front\Traits\SlugsServiceTrait;
 use InetStudio\Favorites\Services\Front\Traits\FavoritesServiceTrait;
 use InetStudio\Battles\Contracts\Services\Front\BattlesServiceContract;
-use InetStudio\Categories\Services\Front\Traits\CategoriesServiceTrait;
+use InetStudio\CategoriesPackage\Categories\Services\Front\Traits\CategoriesServiceTrait;
 
 /**
  * Class BattlesService.
