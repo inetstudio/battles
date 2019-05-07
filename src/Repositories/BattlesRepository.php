@@ -4,7 +4,6 @@ namespace InetStudio\Battles\Repositories;
 
 use InetStudio\AdminPanel\Repositories\BaseRepository;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
-use InetStudio\AdminPanel\Repositories\Traits\SlugsRepositoryTrait;
 use InetStudio\Products\Repositories\Traits\ProductsRepositoryTrait;
 use InetStudio\Favorites\Repositories\Traits\FavoritesRepositoryTrait;
 use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
@@ -14,7 +13,6 @@ use InetStudio\Battles\Contracts\Repositories\BattlesRepositoryContract;
  */
 class BattlesRepository extends BaseRepository implements BattlesRepositoryContract
 {
-    use SlugsRepositoryTrait;
     use ProductsRepositoryTrait;
     use FavoritesRepositoryTrait;
 

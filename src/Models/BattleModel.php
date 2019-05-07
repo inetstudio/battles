@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Contracts\Auditable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use InetStudio\Statuses\Models\Traits\Status;
-use InetStudio\Meta\Contracts\Models\Traits\MetableContract;
+use InetStudio\MetaPackage\Meta\Models\Traits\HasMeta;
 use InetStudio\Battles\Contracts\Models\BattleModelContract;
 use InetStudio\Rating\Contracts\Models\Traits\RateableContract;
 use InetStudio\Favorites\Contracts\Models\Traits\FavoritableContract;
@@ -19,12 +19,12 @@ use InetStudio\AdminPanel\Base\Models\Traits\Scopes\BuildQueryScopeTrait;
 /**
  * Class BattleModel.
  */
-class BattleModel extends Model implements BattleModelContract, MetableContract, HasMedia, FavoritableContract, RateableContract, Auditable
+class BattleModel extends Model implements BattleModelContract, HasMedia, FavoritableContract, RateableContract, Auditable
 {
+    use HasMeta;
     use BuildQueryScopeTrait;
     use \Laravel\Scout\Searchable;
     use \Cviebrock\EloquentSluggable\Sluggable;
-    use \InetStudio\Meta\Models\Traits\Metable;
     use \InetStudio\TagsPackage\Tags\Models\Traits\HasTags;
     use \Illuminate\Database\Eloquent\SoftDeletes;
     use \InetStudio\Rating\Models\Traits\Rateable;
