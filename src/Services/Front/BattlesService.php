@@ -24,6 +24,11 @@ class BattlesService extends BaseService implements BattlesServiceContract
     public $model;
 
     /**
+     * @var string
+     */
+    protected $favoritesType = 'battle';
+
+    /**
      * BattlesService constructor.
      */
     public function __construct()
