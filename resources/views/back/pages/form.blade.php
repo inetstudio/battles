@@ -24,10 +24,7 @@
                     </a>
                 @endif
                 <div class="ibox-tools">
-                    @php
-                        $status = (! $item->id or ! $item->status) ? \InetStudio\Statuses\Models\StatusModel::get()->first() : $item->status;
-                    @endphp
-                    <button class="btn btn-sm btn-{{ $status->color_class }}">{{ $status->name }}</button>
+                    {!! Form::status_block('', $item) !!}
                 </div>
             </div>
         </div>
