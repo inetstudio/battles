@@ -36,7 +36,7 @@ class BattleModel extends Model implements BattleModelContract, HasMedia, Favori
     use \InetStudio\Favorites\Models\Traits\Favoritable;
     use \Cviebrock\EloquentSluggable\SluggableScopeHelpers;
     use \InetStudio\CategoriesPackage\Categories\Models\Traits\HasCategories;
-    use \InetStudio\SimpleCounters\Models\Traits\HasSimpleCountersTrait;
+    use \InetStudio\SimpleCounters\Counters\Models\Traits\HasSimpleCountersTrait;
 
     const ENTITY_TYPE = 'battle';
 
