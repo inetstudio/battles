@@ -32,7 +32,7 @@ class BattleModel extends Model implements BattleModelContract, HasMedia, Favori
     use \InetStudio\Uploads\Models\Traits\HasImages;
     use \InetStudio\Widgets\Models\Traits\HasWidgets;
     use \OwenIt\Auditing\Auditable;
-    use \InetStudio\Comments\Models\Traits\HasComments;
+    use \InetStudio\CommentsPackage\Comments\Models\Traits\HasComments;
     use \InetStudio\Favorites\Models\Traits\Favoritable;
     use \Cviebrock\EloquentSluggable\SluggableScopeHelpers;
     use \InetStudio\CategoriesPackage\Categories\Models\Traits\HasCategories;
