@@ -285,6 +285,16 @@ class BattleModel extends Model implements BattleModelContract, HasMedia, Favori
     }
 
     /**
+     * Get the _type name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return '_doc';
+    }
+
+    /**
      * Возвращаем конфиг для генерации slug модели.
      *
      * @return array
