@@ -2,7 +2,7 @@
 
 namespace InetStudio\Battles\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use InetStudio\Battles\Contracts\Http\Controllers\Front\BattlesVotesControllerContract;
 use InetStudio\Battles\Contracts\Http\Responses\Front\BattlesVotes\VoteResponseContract;
 

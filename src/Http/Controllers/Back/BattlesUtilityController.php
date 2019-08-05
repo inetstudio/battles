@@ -3,7 +3,7 @@
 namespace InetStudio\Battles\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use InetStudio\Battles\Contracts\Http\Responses\Back\Utility\SlugResponseContract;
 use InetStudio\Battles\Contracts\Http\Responses\Back\Utility\SuggestionsResponseContract;

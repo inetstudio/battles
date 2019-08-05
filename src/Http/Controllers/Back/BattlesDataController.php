@@ -2,7 +2,7 @@
 
 namespace InetStudio\Battles\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use InetStudio\Battles\Contracts\Http\Controllers\Back\BattlesDataControllerContract;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace InetStudio\Battles\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use InetStudio\Battles\Contracts\Http\Requests\Back\SaveBattleRequestContract;
 use InetStudio\Battles\Contracts\Http\Controllers\Back\BattlesControllerContract;
 use InetStudio\Battles\Contracts\Http\Responses\Back\Battles\FormResponseContract;
