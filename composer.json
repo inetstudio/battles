@@ -11,6 +11,7 @@
     ],
     "require": {
       "inetstudio/access": "1.8.*",
+      "inetstudio/admin-panel": "1.8.*",
       "inetstudio/categories": "1.8.*",
       "inetstudio/comments": "1.8.*",
       "inetstudio/favorites": "1.8.*",
@@ -23,14 +24,19 @@
     },
     "autoload": {
       "psr-4": {
-        "InetStudio\\Battles\\": "src/"
+        "InetStudio\\BattlesPackage\\": "package/src",
+        "InetStudio\\BattlesPackage\\Battles\\": "entities/battles/src",
+        "InetStudio\\BattlesPackage\\Votes\\": "entities/votes/src"
       }
     },
     "extra": {
       "laravel": {
         "providers": [
-          "InetStudio\\Battles\\Providers\\BattlesBindingsServiceProvider",
-          "InetStudio\\Battles\\Providers\\BattlesServiceProvider"
+          "InetStudio\\BattlesPackage\\Providers\\ServiceProvider",
+          "InetStudio\\BattlesPackage\\Battles\\Providers\\BindingsServiceProvider",
+          "InetStudio\\BattlesPackage\\Battles\\Providers\\ServiceProvider",
+          "InetStudio\\BattlesPackage\\Votes\\Providers\\BindingsServiceProvider",
+          "InetStudio\\BattlesPackage\\Votes\\Providers\\ServiceProvider"
         ]
       }
     }
