@@ -66,11 +66,11 @@ class ItemsService extends BaseService implements ItemsServiceContract
      *
      * @param  BattleModelContract  $battle
      *
-     * @return bool
+     * @return array
      *
      * @throws BindingResolutionException
      */
-    public function isVote(BattleModelContract $battle): bool
+    public function isVote(BattleModelContract $battle): array
     {
         $usersService = app()->make('InetStudio\ACL\Users\Contracts\Services\Front\UsersServiceContract');
         $userId = $usersService->getUserIDOrHash();
