@@ -15,6 +15,7 @@ class BindingsServiceProvider extends ServiceProvider implements DeferrableProvi
     */
     public $bindings = [
         'InetStudio\BattlesPackage\Battles\Contracts\Events\Back\ModifyItemEventContract' => 'InetStudio\BattlesPackage\Battles\Events\Back\ModifyItemEvent',
+        'InetStudio\BattlesPackage\Battles\Contracts\Events\Front\ItemVoteResultChangedContract' => 'InetStudio\BattlesPackage\Battles\Events\Front\ItemVoteResultChanged',
         'InetStudio\BattlesPackage\Battles\Contracts\Http\Controllers\Back\DataControllerContract' => 'InetStudio\BattlesPackage\Battles\Http\Controllers\Back\DataController',
         'InetStudio\BattlesPackage\Battles\Contracts\Http\Controllers\Back\ResourceControllerContract' => 'InetStudio\BattlesPackage\Battles\Http\Controllers\Back\ResourceController',
         'InetStudio\BattlesPackage\Battles\Contracts\Http\Controllers\Back\UtilityControllerContract' => 'InetStudio\BattlesPackage\Battles\Http\Controllers\Back\UtilityController',

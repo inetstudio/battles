@@ -46,9 +46,7 @@ class SuggestionsResponse extends BaseResponse implements SuggestionsResponseCon
 
         $transformer = app()->make(
             'InetStudio\BattlesPackage\Battles\Contracts\Transformers\Back\Utility\SuggestionTransformerContract',
-            [
-                'type' => $this->type,
-            ]
+            compact('type')
         );
 
         $resource = $transformer->transformCollection($items);
@@ -71,8 +69,6 @@ class SuggestionsResponse extends BaseResponse implements SuggestionsResponseCon
             $data['items'] = $transformation;
         }
 
-        return [
-            $data,
-        ];
+        return $data;
     }
 }

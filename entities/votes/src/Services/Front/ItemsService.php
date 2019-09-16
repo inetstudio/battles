@@ -45,18 +45,27 @@ class ItemsService extends BaseService implements ItemsServiceContract
      */
     public function vote(int $battleId, int $optionId): ?VoteModelContract
     {
-        $battle = $this->battlesService->getItemById($battleId);
-        $isVote = $this->isVote($battle);
+        $item = $this->battlesService->getItemById($battleId);
+        $isVote = $this->isVote($item);
 
-        $vote = (! $isVote['result'])
-            ? $this->saveModel(
+        if (! $isVote['result']) {
+            $vote = $this->saveModel(
                 [
                     'battle_id' => $battleId,
                     'option_id' => $optionId,
                     'user_id' => $isVote['userId'],
                 ]
-            )
-            : null;
+            );
+
+            event(
+                app()->make(
+                    'InetStudio\BattlesPackage\Battles\Contracts\Events\Front\ItemVoteResultChangedContract',
+                    compact('item')
+                )
+            );
+        } else {
+            $vote = null;
+        }
 
         return $vote;
     }
