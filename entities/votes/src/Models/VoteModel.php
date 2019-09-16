@@ -97,7 +97,7 @@ class VoteModel extends Model implements VoteModelContract
      */
     public function setUserIdAttribute($value): void
     {
-        $this->attributes['user_id'] = (int) trim(strip_tags($value));
+        $this->attributes['user_id'] = trim(strip_tags($value));
     }
 
     /**
