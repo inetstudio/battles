@@ -11,8 +11,8 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 class BindingsServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-    * @var  array
-    */
+     * @var  array
+     */
     public $bindings = [
         'InetStudio\BattlesPackage\Votes\Contracts\Http\Controllers\Front\ItemsControllerContract' => 'InetStudio\BattlesPackage\Votes\Http\Controllers\Front\ItemsController',
         'InetStudio\BattlesPackage\Votes\Contracts\Http\Responses\Front\VoteResponseContract' => 'InetStudio\BattlesPackage\Votes\Http\Responses\Front\VoteResponse',

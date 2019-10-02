@@ -122,7 +122,7 @@ class IndexService extends DataTable implements IndexServiceContract
         return [
             'order' => [
                 2,
-                'desc'
+                'desc',
             ],
             'paging' => true,
             'pagingType' => 'full_numbers',
