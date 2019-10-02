@@ -8,7 +8,7 @@ Route::group(
         'middleware' => ['web'],
     ],
     function () {
-        Route::post('battles/vote/{battleId}/{optionId}','ItemsControllerContract@vote')
+        Route::post('battles/vote/{battleId}/{optionId}', 'ItemsControllerContract@vote')
             ->name('front.battles.vote');
     }
 );

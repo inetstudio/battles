@@ -15,18 +15,18 @@ Route::group(
         Route::post('battles/slug', 'UtilityControllerContract@getSlug')
             ->name('back.battles.getSlug');
 
-        Route::post('battles/suggestions','UtilityControllerContract@getSuggestions')
+        Route::post('battles/suggestions', 'UtilityControllerContract@getSuggestions')
             ->name('back.battles.getSuggestions');
 
         Route::resource(
             'battles',
             'ResourceControllerContract',
             [
-                'as' => 'back'
+                'as' => 'back',
             ]
         )->parameters(
             [
-                'battles' => 'id'
+                'battles' => 'id',
             ]
         );
     }

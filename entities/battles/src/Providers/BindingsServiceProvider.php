@@ -11,8 +11,8 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 class BindingsServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
-    * @var  array
-    */
+     * @var  array
+     */
     public $bindings = [
         'InetStudio\BattlesPackage\Battles\Contracts\Events\Back\ModifyItemEventContract' => 'InetStudio\BattlesPackage\Battles\Events\Back\ModifyItemEvent',
         'InetStudio\BattlesPackage\Battles\Contracts\Events\Front\ItemVoteResultChangedContract' => 'InetStudio\BattlesPackage\Battles\Events\Front\ItemVoteResultChanged',
