@@ -3,7 +3,7 @@
 namespace InetStudio\BattlesPackage\Battles\Http\Responses\Back\Resource;
 
 use InetStudio\AdminPanel\Base\Http\Responses\BaseResponse;
-use InetStudio\FeedbackPackage\Feedback\Contracts\Services\Back\ItemsServiceContract;
+use InetStudio\BattlesPackage\Battles\Contracts\Services\Back\ItemsServiceContract;
 use InetStudio\BattlesPackage\Battles\Contracts\Http\Responses\Back\Resource\ShowResponseContract;
 
 /**
