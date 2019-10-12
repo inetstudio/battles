@@ -8,16 +8,16 @@ use Illuminate\Support\Carbon;
 use OwenIt\Auditing\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use InetStudio\Rating\Models\Traits\Rateable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use InetStudio\Uploads\Models\Traits\HasImages;
+use InetStudio\Rating\Models\Traits\Rateable;
 use InetStudio\Access\Models\Traits\Accessable;
+use InetStudio\Uploads\Models\Traits\HasImages;
 use InetStudio\Widgets\Models\Traits\HasWidgets;
-use InetStudio\Favorites\Models\Traits\Favoritable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use InetStudio\TagsPackage\Tags\Models\Traits\HasTags;
+use InetStudio\Favorites\Models\Traits\Favoritable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use InetStudio\MetaPackage\Meta\Models\Traits\HasMeta;
+use InetStudio\TagsPackage\Tags\Models\Traits\HasTags;
 use InetStudio\Classifiers\Models\Traits\HasClassifiers;
 use InetStudio\StatusesPackage\Statuses\Models\Traits\Status;
 use Illuminate\Contracts\Container\BindingResolutionException;
@@ -194,7 +194,7 @@ class BattleModel extends Model implements BattleModelContract
                     'disk',
                     'mime_type',
                     'custom_properties',
-                    'responsive_images'
+                    'responsive_images',
                 ]);
             },
 
