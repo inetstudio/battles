@@ -81,8 +81,8 @@ class ItemsService extends BaseService implements ItemsServiceContract
      */
     public function isVote(BattleModelContract $battle): array
     {
-        $usersService = app()->make('InetStudio\ACL\Users\Contracts\Services\Front\UsersServiceContract');
-        $userId = $usersService->getUserIDOrHash();
+        $usersService = app()->make('InetStudio\ACL\Users\Contracts\Services\Front\ItemsServiceContract');
+        $userId = $usersService->getUserIdOrHash();
 
         $result = $battle->votes()->where(
             [
