@@ -185,7 +185,7 @@
                                         </div>
                                     </div>
 
-                                    {!! Form::access('battles', $item) !!}
+                                    {!! Form::fields_access('battles', $item) !!}
 
                                 </div>
                             </div>

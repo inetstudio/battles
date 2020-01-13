@@ -12,8 +12,6 @@ class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Загрузка сервиса.
-     *
-     * @return void
      */
     public function boot(): void
     {
