@@ -9,11 +9,9 @@ use OwenIt\Auditing\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use InetStudio\Rating\Models\Traits\Rateable;
 use InetStudio\Uploads\Models\Traits\HasImages;
 use InetStudio\Widgets\Models\Traits\HasWidgets;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use InetStudio\Favorites\Models\Traits\Favoritable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use InetStudio\MetaPackage\Meta\Models\Traits\HasMeta;
 use InetStudio\TagsPackage\Tags\Models\Traits\HasTags;
@@ -34,13 +32,11 @@ class BattleModel extends Model implements BattleModelContract
 {
     use HasMeta;
     use HasTags;
-    use Rateable;
     use Auditable;
     use HasImages;
     use Sluggable;
     use HasWidgets;
     use Searchable;
-    use Favoritable;
     use HasComments;
     use SoftDeletes;
     use HasCategories;

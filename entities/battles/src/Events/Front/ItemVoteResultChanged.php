@@ -18,7 +18,7 @@ class ItemVoteResultChanged implements ItemVoteResultChangedContract
     public $item;
 
     /**
-     * ItemRateChanged constructor.
+     * ItemVoteResultChanged constructor.
      *
      * @param   $item
      */
