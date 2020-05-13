@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use InetStudio\Uploads\Models\Traits\HasImages;
-use InetStudio\Widgets\Models\Traits\HasWidgets;
+use InetStudio\WidgetsPackage\Widgets\Models\Traits\HasWidgets;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use InetStudio\MetaPackage\Meta\Models\Traits\HasMeta;
