@@ -148,7 +148,7 @@ class BattleModel extends Model implements BattleModelContract
      *
      * @return array
      */
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
