@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 window.tinymce.PluginManager.add('battles', function (editor) {
     editor.addButton('add_battle_widget', {
         title: 'Битвы',
@@ -9,10 +11,10 @@ window.tinymce.PluginManager.add('battles', function (editor) {
             let battleWidgetID = '';
 
             if (content !== '' && ! /<img class="content-widget".+data-type="battle".+\/>/g.test(content)) {
-                swal({
+                Swal.fire({
                     title: "Ошибка",
                     text: "Необходимо выбрать виджет-битву",
-                    type: "error"
+                    icon: "error"
                 });
 
                 return false;

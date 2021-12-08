@@ -1,3 +1,5 @@
+import {battles} from './package/battles';
+
 require('./plugins/tinymce/plugins/battles');
-let battles = require('./package/battles');
+
 battles.init();
